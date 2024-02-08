@@ -3,8 +3,10 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
+const dotenv = require('dotenv');
+dotenv.config();
 var jwt = require("jsonwebtoken");
-const JWT_SECRET = "Vim_is$Tough"
+const JWT_SECRET = process.env.JWT_SECRET;
 var fetchuser = require('../middleware/fetchuser')
 // Route 1 : Create a user using: POST "/api/auth/createUser". NO login required
 router.post(
